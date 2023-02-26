@@ -19,3 +19,10 @@ example:
 ```
 npm run estimate-fee 0xF0d1ed42D079459023a9a2501c94B83D52780492
 ```
+
+# useful links
+
+- ssv account portal https://app.ssv.network/my-account
+- ssv swagger https://api.ssv.network/documentation/#/
+- ssv goerli contract https://goerli.etherscan.io/address/0xb9e155e65B5c4D66df28Da8E9a0957f06F11Bc04
+- ssv faucet https://faucet.ssv.network/
