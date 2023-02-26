@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "register-validator": "run-func src/tool.js registerValidator",
+    "estimate-fee": "run-func src/tool.js estimateFee",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
