@@ -1,0 +1,11 @@
+.idea
+.DS_Store
+node_modules/
+# Optional npm cache directory
+.npm
+# dotenv environment variables file
+.env
+.env.test
+
+**/keyshare-*.json
+**/keystore-*.json
