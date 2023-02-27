@@ -1,18 +1,26 @@
-# config
+# Requirement
 
-## config .env
+**nodejs version 16**
+
+```
+npm install
+```
+
+# Config
+
+## Config .env
 example: .env-example
 ```
 INFURA_API_KEY=<infura api key>
 SIGNER_PRIVATE_KEY=<owner address private key>
 ```
 
-## config keystore
+## Config keystore
 put keystore file into keystore/ directory
 
 example: keystore/example-keystore.json
 
-# register validator
+# Register Validator
 
 ```
 npm run register-validator <operator-id-1> <operator-id-2> <operator-id-3> <operator-id-4> <keystore-file-name> <keystore-password>
@@ -24,7 +32,7 @@ example:
 npm run register-validator 958 24 91 4 example-keystore.json 11111111
 ```
 
-# estimate fee
+# Estimate Fee
 ```
 npm run estimate-fee <owner-address>
 ```
@@ -34,12 +42,12 @@ example:
 npm run estimate-fee 0xF0d1ed42D079459023a9a2501c94B83D52780492
 ```
 
-# operator candidates
+# Operator Candidates
 ```
 npm run operator-candidates
 ```
 
-# useful links
+# Useful Links
 
 - ssv account portal https://app.ssv.network/my-account
 - ssv swagger https://api.ssv.network/documentation/#/
