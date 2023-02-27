@@ -1,3 +1,17 @@
+# config
+
+## config .env
+example: .env-example
+```
+INFURA_API_KEY=<infura api key>
+SIGNER_PRIVATE_KEY=<owner address private key>
+```
+
+## config keystore
+put keystore file into keystore/ directory
+
+example: keystore/example-keystore.json
+
 # register validator
 
 ```
