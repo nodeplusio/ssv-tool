@@ -6,6 +6,7 @@
   "scripts": {
     "register-validator": "run-func src/tool.js registerValidator",
     "estimate-fee": "run-func src/tool.js estimateFee",
+    "operator-candidates": "run-func src/tool.js operatorCandidates",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
