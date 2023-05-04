@@ -1,11 +1,16 @@
 import { ethers } from 'ethers'
 
+const api = 'https://api.ssv.network/api/v3/prater/operators'
+const VALIDATOR_COUNT_THRESHOLD = 20
+const PERFORMANCE_30D_THRESHOLD = 98
+
 async function operatorCandidates (shortVersion=false) {
-  const resp = await ethers.utils.fetchJson('https://api.ssv.network/api/v2/prater/operators?type=Example%3Averified_operator&page=1&perPage=5000&ordering=performance.30d%3Adesc%2Cvalidator_count%3Adesc')
+  const url = `${api}?type=verified_operator&page=1&perPage=5000&ordering=performance.30d%3Adesc%2Cvalidator_count%3Adesc`
+  const resp = await ethers.utils.fetchJson(url)
   const operators = resp.operators
   const operatorCandidates = operators.filter(o => o.is_valid && o.is_active && !o.is_deleted && o.status === 'Active')
-    .filter(o => o.validators_count >= 100)
-    .filter(o => o.performance['30d'] >= 98)
+    .filter(o => o.validators_count >= VALIDATOR_COUNT_THRESHOLD)
+    .filter(o => o.performance['30d'] >= PERFORMANCE_30D_THRESHOLD)
   console.log(`operator candidates count: ${operatorCandidates.length}`)
   if(shortVersion){
     const shorten = operatorCandidates.map(o => {

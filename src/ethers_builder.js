@@ -1,12 +1,11 @@
 import * as dotenv from 'dotenv'
+import abi from './abi.js'
+import { ethers } from "ethers";
 dotenv.config()
 
 const INFURA_API_KEY = process.env.INFURA_API_KEY
 const SIGNER_PRIVATE_KEY = process.env.SIGNER_PRIVATE_KEY
-const ssvNetworkAddress = "0xb9e155e65b5c4d66df28da8e9a0957f06f11bc04"
-import abi from './abi.js'
-import { ethers } from "ethers";
-
+const ssvNetworkAddress = "0xafdb141dd99b5a101065f40e3d7636262dce65b3"
 
 async function ethersBuild(){
   const provider = new ethers.providers.InfuraProvider("goerli", INFURA_API_KEY);
