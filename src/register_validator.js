@@ -51,9 +51,9 @@ async function registerValidator (id1, id2, id3, id4, keyStoreFileName, keyStore
     clusterParam,
     {
       //goerli test use only
-      maxFeePerGas: ethers.utils.parseUnits('800', 'gwei'),
+      maxFeePerGas: ethers.utils.parseUnits('5000', 'gwei'),
       maxPriorityFeePerGas: ethers.utils.parseUnits('30', 'gwei'),
-      gasLimit: 1000000
+      gasLimit: 300000
     }
   )
   console.log('awaiting register tx')
