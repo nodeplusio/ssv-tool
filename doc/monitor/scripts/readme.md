@@ -1,6 +1,6 @@
-# 说明
-1. eth_validator_info.sh 获取validator的pubkey balance status信息
-2. eth_earning.sh 计算每天 每周 每月 每年以及总的收益
-3. web_status.sh 获取ssv-operators网站访问状态码
-4. estimate_operation_fee.sh 获取ssv cluster的剩余balance及estimated remaining days
-5. ssv-validators-1683274141658.json grafana dashboard json文件 
+# Explanation
+1. eth_validator_info.sh: Get validator's pubkey balance status information
+2. eth_earning.sh: Calculate daily, weekly, monthly, yearly and total rewards
+3. web_status.sh: Get the http status code of the ssv-operators website
+4. estimate_operation_fee.sh: Get the remaining balance and estimated remaining days of ssv cluster
+5. ssv-validator-dashboard.json: grafana dashboard json file

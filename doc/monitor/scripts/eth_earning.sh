@@ -1,37 +1,33 @@
 #!/bin/bash
 rm -f sum_data.txt
 
-#需要统计的validator的index
+#The index of the validator that needs to be statisticsed
 indexs=380081,38080
 
-#从beaconcha.in的接口获取数据
+#Get data from api of beaconcha.in
 data=`/usr/bin/curl -X 'GET' \
 'https://goerli.beaconcha.in/api/v1/validator/'$indexs'/performance' \
  -H 'accept: application/json'`
 
-# 从JSON中提取balance字段的值，并求和
+#Extract the value of the balance field from the JSON and sum it
 balance_sum=$(echo $data | /usr/bin/jq -r '.data[].balance' | awk '{s+=$1} END {print s}')
 
-# 从JSON中提取performance1d字段的值，并求和
+#Extract the value of the performance1d field from the JSON and sum it
 performance1d_sum=$(echo $data | /usr/bin/jq -r '.data[].performance1d' | awk '{s+=$1} END {print s}')
 
-# 从JSON中提取performance31d字段的值，并求和
+#Extract the value of the performance31d field from the JSON and sum it
 performance31d_sum=$(echo $data | /usr/bin/jq -r '.data[].performance31d' | awk '{s+=$1} END {print s}')
 
-# 从JSON中提取performance365d字段的值，并求和
+#Extract the value of the performance365d field from the JSON and sum it
 performance365d_sum=$(echo $data | /usr/bin/jq -r '.data[].performance365d' | awk '{s+=$1} END {print s}')
 
-# 从JSON中提取performance7d字段的值，并求和
+#Extract the value of the performance7d field from the JSON and sum it
 performance7d_sum=$(echo $data | /usr/bin/jq -r '.data[].performance7d' | awk '{s+=$1} END {print s}')
 
-# 从JSON中提取performancetoday字段的值，并求和
+#Extract the value of the performancetoday field from the JSON and sum it
 performancetoday_sum=$(echo $data | /usr/bin/jq -r '.data[].performancetoday' | awk '{s+=$1} END {print s}')
 
-# 从JSON中提取performancetotal字段的值，并求和
-performancetotal_sum=$(echo $data | /usr/bin/jq -r '.data[].performancetotal' | awk '{s+=$1} END {print s}')
-
-
-# 输出结果
+#Output result
 echo "balance_sum: $balance_sum" >> sum_data.txt
 echo "performance1d: $performance1d_sum" >> sum_data.txt
 echo "performance7d: $performance7d_sum" >> sum_data.txt
