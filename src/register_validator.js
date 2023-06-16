@@ -3,7 +3,7 @@ import fetch from 'node-fetch'
 import ethers, { BigNumber } from 'ethers'
 import * as fs from 'node:fs'
 import * as path from 'node:path'
-import { SSVKeys } from 'ssv-keys'
+import { KeyShares, SSVKeys } from 'ssv-keys'
 
 const api = 'https://api.ssv.network/api/v3/prater'
 const AMOUNT_NEW_CLUSTER = BigNumber.from('10000000000000000000')
@@ -17,23 +17,29 @@ async function registerValidator (id1, id2, id3, id4, keyStoreFileName, keyStore
   let operatorPubKeys = []
   for (const opId of operatorIds) {
     const op = await fetchOperatorInfo(opId)
-    operatorPubKeys.push(op.public_key)
+    operatorPubKeys.push(
+      {
+        id: opId,
+        publicKey: op.public_key
+      }
+    )
   }
 
   const keystoreFile = fs.readFileSync(path.resolve('.', 'keystore', `${keyStoreFileName}`), 'utf-8')
   const keystore = JSON.parse(keystoreFile)
   const publicKey = `0x${keystore.pubkey}`
 
-  const ssvKeys = new SSVKeys(SSVKeys.VERSION.V3)
-  const privateKey = await ssvKeys.getPrivateKeyFromKeystoreData(keystore, keyStorePassword)
-  const threshold = await ssvKeys.createThreshold(privateKey, operatorIds)
-  const encryptedShares = await ssvKeys.encryptShares(operatorPubKeys, threshold.shares)
-  let payload = await ssvKeys.buildPayload({
-      publicKey,
-      operatorIds,
-      encryptedShares
-    }
-  )
+  const ssvKeys = new SSVKeys()
+  const extractedKeys = await ssvKeys.extractKeys(keystore,keyStorePassword)
+  const privateKey = extractedKeys.privateKey
+  const encryptShares = await ssvKeys.buildShares(privateKey,operatorPubKeys)
+
+  const keyShares = new KeyShares();
+  const payload = await keyShares.buildPayload({
+    publicKey:publicKey,
+    operators:operatorPubKeys,
+    encryptedShares:encryptShares,
+  });
 
   let amount = BigNumber.from('0')
   const ssvNetwork = await ethersBuild()
@@ -46,12 +52,12 @@ async function registerValidator (id1, id2, id3, id4, keyStoreFileName, keyStore
   const tx = await ssvNetwork.registerValidator(
     publicKey,
     operatorIds,
-    payload.readable.shares,
+    payload.shares,
     amount,
     clusterParam,
     {
       //goerli test use only
-      maxFeePerGas: ethers.utils.parseUnits('5000', 'gwei'),
+      maxFeePerGas: ethers.utils.parseUnits('300', 'gwei'),
       maxPriorityFeePerGas: ethers.utils.parseUnits('30', 'gwei'),
       gasLimit: 300000
     }

@@ -16,6 +16,6 @@
     "ethers": "^5.7.2",
     "node-fetch": "^3.3.0",
     "run-func": "^3.0.0",
-    "ssv-keys": "^0.0.16"
+    "ssv-keys": "^0.0.18"
   }
 }
