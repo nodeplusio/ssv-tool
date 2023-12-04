@@ -1,12 +1,18 @@
 #!/bin/bash
 rm -f sum_data.txt
-
+#The network of the validator,must be "mainnet" or "goerli"
+network=$1
+# Validate the network parameter
+if [ "$network" != "mainnet" ] && [ "$network" != "goerli" ]; then
+    echo "Error: Invalid network parameter. It must be './eth_earning.sh mainnet' or './eth_earning.sh goerli'."
+    exit 1
+fi
 #The index of the validator that needs to be statisticsed
 indexs=380081,38080
 
 #Get data from api of beaconcha.in
 data=`/usr/bin/curl -X 'GET' \
-'https://goerli.beaconcha.in/api/v1/validator/'$indexs'/performance' \
+'https://'$network'.beaconcha.in/api/v1/validator/'$indexs'/performance' \
  -H 'accept: application/json'`
 
 #Extract the value of the balance field from the JSON and sum it
