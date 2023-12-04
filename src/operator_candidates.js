@@ -1,11 +1,8 @@
 import { ethers } from 'ethers'
-
-const api = 'https://api.ssv.network/api/v3/prater/operators'
-const VALIDATOR_COUNT_THRESHOLD = 20
-const PERFORMANCE_30D_THRESHOLD = 98
+import {API, VALIDATOR_COUNT_THRESHOLD, PERFORMANCE_30D_THRESHOLD} from './config.js'
 
 async function operatorCandidates (shortVersion=false) {
-  const url = `${api}?type=verified_operator&page=1&perPage=5000&ordering=performance.30d%3Adesc%2Cvalidator_count%3Adesc`
+  const url = `${API}/operators?type=verified_operator&page=1&perPage=5000&ordering=performance.30d%3Adesc%2Cvalidator_count%3Adesc`
   const resp = await ethers.utils.fetchJson(url)
   const operators = resp.operators
   const operatorCandidates = operators.filter(o => o.is_valid && o.is_active && !o.is_deleted && o.status === 'Active')

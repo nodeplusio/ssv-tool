@@ -1,40 +1,56 @@
-const abi = [{ 'inputs': [], 'name': 'ApprovalNotWithinTimeframe', 'type': 'error' }, {
+const abi = [{ 'inputs': [], 'stateMutability': 'nonpayable', 'type': 'constructor' }, {
   'inputs': [],
-  'name': 'CallerNotOwner',
+  'name': 'ApprovalNotWithinTimeframe',
   'type': 'error'
-}, { 'inputs': [], 'name': 'CallerNotWhitelisted', 'type': 'error' }, {
+}, { 'inputs': [], 'name': 'CallerNotOwner', 'type': 'error' }, {
   'inputs': [],
-  'name': 'ClusterAlreadyEnabled',
+  'name': 'CallerNotWhitelisted',
   'type': 'error'
-}, { 'inputs': [], 'name': 'ClusterDoesNotExists', 'type': 'error' }, {
+}, { 'inputs': [], 'name': 'ClusterAlreadyEnabled', 'type': 'error' }, {
   'inputs': [],
-  'name': 'ClusterIsLiquidated',
+  'name': 'ClusterDoesNotExists',
   'type': 'error'
-}, { 'inputs': [], 'name': 'ClusterNotLiquidatable', 'type': 'error' }, {
+}, { 'inputs': [], 'name': 'ClusterIsLiquidated', 'type': 'error' }, {
   'inputs': [],
-  'name': 'ExceedValidatorLimit',
+  'name': 'ClusterNotLiquidatable',
   'type': 'error'
-}, { 'inputs': [], 'name': 'FeeExceedsIncreaseLimit', 'type': 'error' }, {
+}, { 'inputs': [], 'name': 'ExceedValidatorLimit', 'type': 'error' }, {
   'inputs': [],
-  'name': 'FeeIncreaseNotAllowed',
+  'name': 'FeeExceedsIncreaseLimit',
+  'type': 'error'
+}, { 'inputs': [], 'name': 'FeeIncreaseNotAllowed', 'type': 'error' }, {
+  'inputs': [],
+  'name': 'FeeTooHigh',
   'type': 'error'
 }, { 'inputs': [], 'name': 'FeeTooLow', 'type': 'error' }, {
   'inputs': [],
   'name': 'IncorrectClusterState',
   'type': 'error'
-}, { 'inputs': [], 'name': 'InsufficientBalance', 'type': 'error' }, {
+}, { 'inputs': [], 'name': 'IncorrectValidatorState', 'type': 'error' }, {
   'inputs': [],
-  'name': 'InvalidOperatorIdsLength',
+  'name': 'InsufficientBalance',
   'type': 'error'
-}, { 'inputs': [], 'name': 'InvalidPublicKeyLength', 'type': 'error' }, {
+}, { 'inputs': [], 'name': 'InvalidOperatorIdsLength', 'type': 'error' }, {
+  'inputs': [],
+  'name': 'InvalidPublicKeyLength',
+  'type': 'error'
+}, { 'inputs': [], 'name': 'MaxValueExceeded', 'type': 'error' }, {
   'inputs': [],
   'name': 'NewBlockPeriodIsBelowMinimum',
   'type': 'error'
-}, { 'inputs': [], 'name': 'NoFeeDelcared', 'type': 'error' }, {
+}, { 'inputs': [], 'name': 'NoFeeDeclared', 'type': 'error' }, {
+  'inputs': [],
+  'name': 'NotAuthorized',
+  'type': 'error'
+}, { 'inputs': [], 'name': 'OperatorAlreadyExists', 'type': 'error' }, {
   'inputs': [],
   'name': 'OperatorDoesNotExist',
   'type': 'error'
-}, { 'inputs': [], 'name': 'SameFeeChangeNotAllowed', 'type': 'error' }, {
+}, { 'inputs': [], 'name': 'OperatorsListNotUnique', 'type': 'error' }, {
+  'inputs': [],
+  'name': 'SameFeeChangeNotAllowed',
+  'type': 'error'
+}, { 'inputs': [], 'name': 'TargetModuleDoesNotExist', 'type': 'error' }, {
   'inputs': [],
   'name': 'TokenTransferFailed',
   'type': 'error'
@@ -43,10 +59,6 @@ const abi = [{ 'inputs': [], 'name': 'ApprovalNotWithinTimeframe', 'type': 'erro
   'name': 'ValidatorAlreadyExists',
   'type': 'error'
 }, { 'inputs': [], 'name': 'ValidatorDoesNotExist', 'type': 'error' }, {
-  'inputs': [],
-  'name': 'ValidatorOwnedByOtherAddress',
-  'type': 'error'
-}, {
   'anonymous': false,
   'inputs': [{
     'indexed': false,
@@ -82,10 +94,10 @@ const abi = [{ 'inputs': [], 'name': 'ApprovalNotWithinTimeframe', 'type': 'erro
       'internalType': 'uint64',
       'name': 'index',
       'type': 'uint64'
-    }, { 'internalType': 'uint256', 'name': 'balance', 'type': 'uint256' }, {
-      'internalType': 'bool',
-      'name': 'active',
-      'type': 'bool'
+    }, { 'internalType': 'bool', 'name': 'active', 'type': 'bool' }, {
+      'internalType': 'uint256',
+      'name': 'balance',
+      'type': 'uint256'
     }], 'indexed': false, 'internalType': 'struct ISSVNetworkCore.Cluster', 'name': 'cluster', 'type': 'tuple'
   }],
   'name': 'ClusterDeposited',
@@ -106,10 +118,10 @@ const abi = [{ 'inputs': [], 'name': 'ApprovalNotWithinTimeframe', 'type': 'erro
       'internalType': 'uint64',
       'name': 'index',
       'type': 'uint64'
-    }, { 'internalType': 'uint256', 'name': 'balance', 'type': 'uint256' }, {
-      'internalType': 'bool',
-      'name': 'active',
-      'type': 'bool'
+    }, { 'internalType': 'bool', 'name': 'active', 'type': 'bool' }, {
+      'internalType': 'uint256',
+      'name': 'balance',
+      'type': 'uint256'
     }], 'indexed': false, 'internalType': 'struct ISSVNetworkCore.Cluster', 'name': 'cluster', 'type': 'tuple'
   }],
   'name': 'ClusterLiquidated',
@@ -130,10 +142,10 @@ const abi = [{ 'inputs': [], 'name': 'ApprovalNotWithinTimeframe', 'type': 'erro
       'internalType': 'uint64',
       'name': 'index',
       'type': 'uint64'
-    }, { 'internalType': 'uint256', 'name': 'balance', 'type': 'uint256' }, {
-      'internalType': 'bool',
-      'name': 'active',
-      'type': 'bool'
+    }, { 'internalType': 'bool', 'name': 'active', 'type': 'bool' }, {
+      'internalType': 'uint256',
+      'name': 'balance',
+      'type': 'uint256'
     }], 'indexed': false, 'internalType': 'struct ISSVNetworkCore.Cluster', 'name': 'cluster', 'type': 'tuple'
   }],
   'name': 'ClusterReactivated',
@@ -159,10 +171,10 @@ const abi = [{ 'inputs': [], 'name': 'ApprovalNotWithinTimeframe', 'type': 'erro
       'internalType': 'uint64',
       'name': 'index',
       'type': 'uint64'
-    }, { 'internalType': 'uint256', 'name': 'balance', 'type': 'uint256' }, {
-      'internalType': 'bool',
-      'name': 'active',
-      'type': 'bool'
+    }, { 'internalType': 'bool', 'name': 'active', 'type': 'bool' }, {
+      'internalType': 'uint256',
+      'name': 'balance',
+      'type': 'uint256'
     }], 'indexed': false, 'internalType': 'struct ISSVNetworkCore.Cluster', 'name': 'cluster', 'type': 'tuple'
   }],
   'name': 'ClusterWithdrawn',
@@ -245,7 +257,7 @@ const abi = [{ 'inputs': [], 'name': 'ApprovalNotWithinTimeframe', 'type': 'erro
     'name': 'operatorId',
     'type': 'uint64'
   }],
-  'name': 'OperatorFeeCancellationDeclared',
+  'name': 'OperatorFeeDeclarationCancelled',
   'type': 'event'
 }, {
   'anonymous': false,
@@ -281,6 +293,11 @@ const abi = [{ 'inputs': [], 'name': 'ApprovalNotWithinTimeframe', 'type': 'erro
   'anonymous': false,
   'inputs': [{ 'indexed': false, 'internalType': 'uint64', 'name': 'value', 'type': 'uint64' }],
   'name': 'OperatorFeeIncreaseLimitUpdated',
+  'type': 'event'
+}, {
+  'anonymous': false,
+  'inputs': [{ 'indexed': false, 'internalType': 'uint64', 'name': 'maxFee', 'type': 'uint64' }],
+  'name': 'OperatorMaximumFeeUpdated',
   'type': 'event'
 }, {
   'anonymous': false,
@@ -353,13 +370,23 @@ const abi = [{ 'inputs': [], 'name': 'ApprovalNotWithinTimeframe', 'type': 'erro
       'internalType': 'uint64',
       'name': 'index',
       'type': 'uint64'
-    }, { 'internalType': 'uint256', 'name': 'balance', 'type': 'uint256' }, {
-      'internalType': 'bool',
-      'name': 'active',
-      'type': 'bool'
+    }, { 'internalType': 'bool', 'name': 'active', 'type': 'bool' }, {
+      'internalType': 'uint256',
+      'name': 'balance',
+      'type': 'uint256'
     }], 'indexed': false, 'internalType': 'struct ISSVNetworkCore.Cluster', 'name': 'cluster', 'type': 'tuple'
   }],
   'name': 'ValidatorAdded',
+  'type': 'event'
+}, {
+  'anonymous': false,
+  'inputs': [{ 'indexed': true, 'internalType': 'address', 'name': 'owner', 'type': 'address' }, {
+    'indexed': false,
+    'internalType': 'uint64[]',
+    'name': 'operatorIds',
+    'type': 'uint64[]'
+  }, { 'indexed': false, 'internalType': 'bytes', 'name': 'publicKey', 'type': 'bytes' }],
+  'name': 'ValidatorExited',
   'type': 'event'
 }, {
   'anonymous': false,
@@ -382,15 +409,15 @@ const abi = [{ 'inputs': [], 'name': 'ApprovalNotWithinTimeframe', 'type': 'erro
       'internalType': 'uint64',
       'name': 'index',
       'type': 'uint64'
-    }, { 'internalType': 'uint256', 'name': 'balance', 'type': 'uint256' }, {
-      'internalType': 'bool',
-      'name': 'active',
-      'type': 'bool'
+    }, { 'internalType': 'bool', 'name': 'active', 'type': 'bool' }, {
+      'internalType': 'uint256',
+      'name': 'balance',
+      'type': 'uint256'
     }], 'indexed': false, 'internalType': 'struct ISSVNetworkCore.Cluster', 'name': 'cluster', 'type': 'tuple'
   }],
   'name': 'ValidatorRemoved',
   'type': 'event'
-}, {
+}, { 'stateMutability': 'nonpayable', 'type': 'fallback' }, {
   'inputs': [],
   'name': 'acceptOwnership',
   'outputs': [],
@@ -403,35 +430,13 @@ const abi = [{ 'inputs': [], 'name': 'ApprovalNotWithinTimeframe', 'type': 'erro
   'stateMutability': 'nonpayable',
   'type': 'function'
 }, {
-  'inputs': [{ 'internalType': 'bytes32', 'name': '', 'type': 'bytes32' }],
-  'name': 'clusters',
-  'outputs': [{ 'internalType': 'bytes32', 'name': '', 'type': 'bytes32' }],
-  'stateMutability': 'view',
-  'type': 'function'
-}, {
-  'inputs': [],
-  'name': 'dao',
-  'outputs': [{ 'internalType': 'uint32', 'name': 'validatorCount', 'type': 'uint32' }, {
-    'internalType': 'uint64',
-    'name': 'balance',
-    'type': 'uint64'
-  }, { 'internalType': 'uint64', 'name': 'block', 'type': 'uint64' }],
-  'stateMutability': 'view',
-  'type': 'function'
-}, {
   'inputs': [{ 'internalType': 'uint64', 'name': 'operatorId', 'type': 'uint64' }, {
     'internalType': 'uint256',
     'name': 'fee',
     'type': 'uint256'
   }], 'name': 'declareOperatorFee', 'outputs': [], 'stateMutability': 'nonpayable', 'type': 'function'
 }, {
-  'inputs': [],
-  'name': 'declareOperatorFeePeriod',
-  'outputs': [{ 'internalType': 'uint64', 'name': '', 'type': 'uint64' }],
-  'stateMutability': 'view',
-  'type': 'function'
-}, {
-  'inputs': [{ 'internalType': 'address', 'name': 'owner', 'type': 'address' }, {
+  'inputs': [{ 'internalType': 'address', 'name': 'clusterOwner', 'type': 'address' }, {
     'internalType': 'uint64[]',
     'name': 'operatorIds',
     'type': 'uint64[]'
@@ -444,10 +449,10 @@ const abi = [{ 'inputs': [], 'name': 'ApprovalNotWithinTimeframe', 'type': 'erro
       'internalType': 'uint64',
       'name': 'index',
       'type': 'uint64'
-    }, { 'internalType': 'uint256', 'name': 'balance', 'type': 'uint256' }, {
-      'internalType': 'bool',
-      'name': 'active',
-      'type': 'bool'
+    }, { 'internalType': 'bool', 'name': 'active', 'type': 'bool' }, {
+      'internalType': 'uint256',
+      'name': 'balance',
+      'type': 'uint256'
     }], 'internalType': 'struct ISSVNetworkCore.Cluster', 'name': 'cluster', 'type': 'tuple'
   }], 'name': 'deposit', 'outputs': [], 'stateMutability': 'nonpayable', 'type': 'function'
 }, {
@@ -457,35 +462,53 @@ const abi = [{ 'inputs': [], 'name': 'ApprovalNotWithinTimeframe', 'type': 'erro
   'stateMutability': 'nonpayable',
   'type': 'function'
 }, {
+  'inputs': [{ 'internalType': 'bytes', 'name': 'publicKey', 'type': 'bytes' }, {
+    'internalType': 'uint64[]',
+    'name': 'operatorIds',
+    'type': 'uint64[]'
+  }], 'name': 'exitValidator', 'outputs': [], 'stateMutability': 'nonpayable', 'type': 'function'
+}, {
   'inputs': [],
-  'name': 'executeOperatorFeePeriod',
-  'outputs': [{ 'internalType': 'uint64', 'name': '', 'type': 'uint64' }],
-  'stateMutability': 'view',
+  'name': 'getVersion',
+  'outputs': [{ 'internalType': 'string', 'name': 'version', 'type': 'string' }],
+  'stateMutability': 'pure',
   'type': 'function'
 }, {
   'inputs': [{
-    'internalType': 'string',
-    'name': 'initialVersion_',
-    'type': 'string'
-  }, { 'internalType': 'contract IERC20', 'name': 'token_', 'type': 'address' }, {
-    'internalType': 'uint64',
-    'name': 'operatorMaxFeeIncrease_',
-    'type': 'uint64'
-  }, { 'internalType': 'uint64', 'name': 'declareOperatorFeePeriod_', 'type': 'uint64' }, {
-    'internalType': 'uint64',
-    'name': 'executeOperatorFeePeriod_',
-    'type': 'uint64'
+    'internalType': 'contract IERC20',
+    'name': 'token_',
+    'type': 'address'
   }, {
+    'internalType': 'contract ISSVOperators',
+    'name': 'ssvOperators_',
+    'type': 'address'
+  }, {
+    'internalType': 'contract ISSVClusters',
+    'name': 'ssvClusters_',
+    'type': 'address'
+  }, {
+    'internalType': 'contract ISSVDAO',
+    'name': 'ssvDAO_',
+    'type': 'address'
+  }, { 'internalType': 'contract ISSVViews', 'name': 'ssvViews_', 'type': 'address' }, {
     'internalType': 'uint64',
     'name': 'minimumBlocksBeforeLiquidation_',
     'type': 'uint64'
-  }, { 'internalType': 'uint256', 'name': 'minimumLiquidationCollateral_', 'type': 'uint256' }],
-  'name': 'initialize',
-  'outputs': [],
-  'stateMutability': 'nonpayable',
-  'type': 'function'
+  }, {
+    'internalType': 'uint256',
+    'name': 'minimumLiquidationCollateral_',
+    'type': 'uint256'
+  }, { 'internalType': 'uint32', 'name': 'validatorsPerOperatorLimit_', 'type': 'uint32' }, {
+    'internalType': 'uint64',
+    'name': 'declareOperatorFeePeriod_',
+    'type': 'uint64'
+  }, { 'internalType': 'uint64', 'name': 'executeOperatorFeePeriod_', 'type': 'uint64' }, {
+    'internalType': 'uint64',
+    'name': 'operatorMaxFeeIncrease_',
+    'type': 'uint64'
+  }], 'name': 'initialize', 'outputs': [], 'stateMutability': 'nonpayable', 'type': 'function'
 }, {
-  'inputs': [{ 'internalType': 'address', 'name': 'owner', 'type': 'address' }, {
+  'inputs': [{ 'internalType': 'address', 'name': 'clusterOwner', 'type': 'address' }, {
     'internalType': 'uint64[]',
     'name': 'operatorIds',
     'type': 'uint64[]'
@@ -498,79 +521,12 @@ const abi = [{ 'inputs': [], 'name': 'ApprovalNotWithinTimeframe', 'type': 'erro
       'internalType': 'uint64',
       'name': 'index',
       'type': 'uint64'
-    }, { 'internalType': 'uint256', 'name': 'balance', 'type': 'uint256' }, {
-      'internalType': 'bool',
-      'name': 'active',
-      'type': 'bool'
+    }, { 'internalType': 'bool', 'name': 'active', 'type': 'bool' }, {
+      'internalType': 'uint256',
+      'name': 'balance',
+      'type': 'uint256'
     }], 'internalType': 'struct ISSVNetworkCore.Cluster', 'name': 'cluster', 'type': 'tuple'
   }], 'name': 'liquidate', 'outputs': [], 'stateMutability': 'nonpayable', 'type': 'function'
-}, {
-  'inputs': [],
-  'name': 'minimumBlocksBeforeLiquidation',
-  'outputs': [{ 'internalType': 'uint64', 'name': '', 'type': 'uint64' }],
-  'stateMutability': 'view',
-  'type': 'function'
-}, {
-  'inputs': [],
-  'name': 'minimumLiquidationCollateral',
-  'outputs': [{ 'internalType': 'uint64', 'name': '', 'type': 'uint64' }],
-  'stateMutability': 'view',
-  'type': 'function'
-}, {
-  'inputs': [],
-  'name': 'network',
-  'outputs': [{ 'internalType': 'uint64', 'name': 'networkFee', 'type': 'uint64' }, {
-    'internalType': 'uint64',
-    'name': 'networkFeeIndex',
-    'type': 'uint64'
-  }, { 'internalType': 'uint64', 'name': 'networkFeeIndexBlockNumber', 'type': 'uint64' }],
-  'stateMutability': 'view',
-  'type': 'function'
-}, {
-  'inputs': [{ 'internalType': 'uint64', 'name': '', 'type': 'uint64' }],
-  'name': 'operatorFeeChangeRequests',
-  'outputs': [{ 'internalType': 'uint64', 'name': 'fee', 'type': 'uint64' }, {
-    'internalType': 'uint64',
-    'name': 'approvalBeginTime',
-    'type': 'uint64'
-  }, { 'internalType': 'uint64', 'name': 'approvalEndTime', 'type': 'uint64' }],
-  'stateMutability': 'view',
-  'type': 'function'
-}, {
-  'inputs': [],
-  'name': 'operatorMaxFeeIncrease',
-  'outputs': [{ 'internalType': 'uint64', 'name': '', 'type': 'uint64' }],
-  'stateMutability': 'view',
-  'type': 'function'
-}, {
-  'inputs': [{ 'internalType': 'uint64', 'name': '', 'type': 'uint64' }],
-  'name': 'operators',
-  'outputs': [{ 'internalType': 'address', 'name': 'owner', 'type': 'address' }, {
-    'internalType': 'uint64',
-    'name': 'fee',
-    'type': 'uint64'
-  }, {
-    'internalType': 'uint32',
-    'name': 'validatorCount',
-    'type': 'uint32'
-  }, {
-    'components': [{ 'internalType': 'uint64', 'name': 'block', 'type': 'uint64' }, {
-      'internalType': 'uint64',
-      'name': 'index',
-      'type': 'uint64'
-    }, { 'internalType': 'uint64', 'name': 'balance', 'type': 'uint64' }],
-    'internalType': 'struct ISSVNetworkCore.Snapshot',
-    'name': 'snapshot',
-    'type': 'tuple'
-  }],
-  'stateMutability': 'view',
-  'type': 'function'
-}, {
-  'inputs': [{ 'internalType': 'uint64', 'name': '', 'type': 'uint64' }],
-  'name': 'operatorsWhitelist',
-  'outputs': [{ 'internalType': 'address', 'name': '', 'type': 'address' }],
-  'stateMutability': 'view',
-  'type': 'function'
 }, {
   'inputs': [],
   'name': 'owner',
@@ -603,10 +559,10 @@ const abi = [{ 'inputs': [], 'name': 'ApprovalNotWithinTimeframe', 'type': 'erro
       'internalType': 'uint64',
       'name': 'index',
       'type': 'uint64'
-    }, { 'internalType': 'uint256', 'name': 'balance', 'type': 'uint256' }, {
-      'internalType': 'bool',
-      'name': 'active',
-      'type': 'bool'
+    }, { 'internalType': 'bool', 'name': 'active', 'type': 'bool' }, {
+      'internalType': 'uint256',
+      'name': 'balance',
+      'type': 'uint256'
     }], 'internalType': 'struct ISSVNetworkCore.Cluster', 'name': 'cluster', 'type': 'tuple'
   }], 'name': 'reactivate', 'outputs': [], 'stateMutability': 'nonpayable', 'type': 'function'
 }, {
@@ -630,7 +586,7 @@ const abi = [{ 'inputs': [], 'name': 'ApprovalNotWithinTimeframe', 'type': 'erro
     'internalType': 'uint64[]',
     'name': 'operatorIds',
     'type': 'uint64[]'
-  }, { 'internalType': 'bytes', 'name': 'shares', 'type': 'bytes' }, {
+  }, { 'internalType': 'bytes', 'name': 'sharesData', 'type': 'bytes' }, {
     'internalType': 'uint256',
     'name': 'amount',
     'type': 'uint256'
@@ -643,10 +599,10 @@ const abi = [{ 'inputs': [], 'name': 'ApprovalNotWithinTimeframe', 'type': 'erro
       'internalType': 'uint64',
       'name': 'index',
       'type': 'uint64'
-    }, { 'internalType': 'uint256', 'name': 'balance', 'type': 'uint256' }, {
-      'internalType': 'bool',
-      'name': 'active',
-      'type': 'bool'
+    }, { 'internalType': 'bool', 'name': 'active', 'type': 'bool' }, {
+      'internalType': 'uint256',
+      'name': 'balance',
+      'type': 'uint256'
     }], 'internalType': 'struct ISSVNetworkCore.Cluster', 'name': 'cluster', 'type': 'tuple'
   }], 'name': 'registerValidator', 'outputs': [], 'stateMutability': 'nonpayable', 'type': 'function'
 }, {
@@ -669,10 +625,10 @@ const abi = [{ 'inputs': [], 'name': 'ApprovalNotWithinTimeframe', 'type': 'erro
       'internalType': 'uint64',
       'name': 'index',
       'type': 'uint64'
-    }, { 'internalType': 'uint256', 'name': 'balance', 'type': 'uint256' }, {
-      'internalType': 'bool',
-      'name': 'active',
-      'type': 'bool'
+    }, { 'internalType': 'bool', 'name': 'active', 'type': 'bool' }, {
+      'internalType': 'uint256',
+      'name': 'balance',
+      'type': 'uint256'
     }], 'internalType': 'struct ISSVNetworkCore.Cluster', 'name': 'cluster', 'type': 'tuple'
   }], 'name': 'removeValidator', 'outputs': [], 'stateMutability': 'nonpayable', 'type': 'function'
 }, {
@@ -700,13 +656,13 @@ const abi = [{ 'inputs': [], 'name': 'ApprovalNotWithinTimeframe', 'type': 'erro
   'stateMutability': 'nonpayable',
   'type': 'function'
 }, {
-  'inputs': [{ 'internalType': 'uint64', 'name': 'newDeclareOperatorFeePeriod', 'type': 'uint64' }],
+  'inputs': [{ 'internalType': 'uint64', 'name': 'timeInSeconds', 'type': 'uint64' }],
   'name': 'updateDeclareOperatorFeePeriod',
   'outputs': [],
   'stateMutability': 'nonpayable',
   'type': 'function'
 }, {
-  'inputs': [{ 'internalType': 'uint64', 'name': 'newExecuteOperatorFeePeriod', 'type': 'uint64' }],
+  'inputs': [{ 'internalType': 'uint64', 'name': 'timeInSeconds', 'type': 'uint64' }],
   'name': 'updateExecuteOperatorFeePeriod',
   'outputs': [],
   'stateMutability': 'nonpayable',
@@ -718,11 +674,23 @@ const abi = [{ 'inputs': [], 'name': 'ApprovalNotWithinTimeframe', 'type': 'erro
   'stateMutability': 'nonpayable',
   'type': 'function'
 }, {
+  'inputs': [{ 'internalType': 'uint64', 'name': 'maxFee', 'type': 'uint64' }],
+  'name': 'updateMaximumOperatorFee',
+  'outputs': [],
+  'stateMutability': 'nonpayable',
+  'type': 'function'
+}, {
   'inputs': [{ 'internalType': 'uint256', 'name': 'amount', 'type': 'uint256' }],
   'name': 'updateMinimumLiquidationCollateral',
   'outputs': [],
   'stateMutability': 'nonpayable',
   'type': 'function'
+}, {
+  'inputs': [{ 'internalType': 'enum SSVModules', 'name': 'moduleId', 'type': 'uint8' }, {
+    'internalType': 'address',
+    'name': 'moduleAddress',
+    'type': 'address'
+  }], 'name': 'updateModule', 'outputs': [], 'stateMutability': 'nonpayable', 'type': 'function'
 }, {
   'inputs': [{ 'internalType': 'uint256', 'name': 'fee', 'type': 'uint256' }],
   'name': 'updateNetworkFee',
@@ -730,7 +698,7 @@ const abi = [{ 'inputs': [], 'name': 'ApprovalNotWithinTimeframe', 'type': 'erro
   'stateMutability': 'nonpayable',
   'type': 'function'
 }, {
-  'inputs': [{ 'internalType': 'uint64', 'name': 'newOperatorMaxFeeIncrease', 'type': 'uint64' }],
+  'inputs': [{ 'internalType': 'uint64', 'name': 'percentage', 'type': 'uint64' }],
   'name': 'updateOperatorFeeIncreaseLimit',
   'outputs': [],
   'stateMutability': 'nonpayable',
@@ -752,28 +720,6 @@ const abi = [{ 'inputs': [], 'name': 'ApprovalNotWithinTimeframe', 'type': 'erro
   'stateMutability': 'payable',
   'type': 'function'
 }, {
-  'inputs': [{ 'internalType': 'bytes32', 'name': '', 'type': 'bytes32' }],
-  'name': 'validatorPKs',
-  'outputs': [{ 'internalType': 'address', 'name': 'owner', 'type': 'address' }, {
-    'internalType': 'bool',
-    'name': 'active',
-    'type': 'bool'
-  }],
-  'stateMutability': 'view',
-  'type': 'function'
-}, {
-  'inputs': [],
-  'name': 'validatorsPerOperatorLimit',
-  'outputs': [{ 'internalType': 'uint32', 'name': '', 'type': 'uint32' }],
-  'stateMutability': 'view',
-  'type': 'function'
-}, {
-  'inputs': [],
-  'name': 'version',
-  'outputs': [{ 'internalType': 'bytes32', 'name': '', 'type': 'bytes32' }],
-  'stateMutability': 'view',
-  'type': 'function'
-}, {
   'inputs': [{ 'internalType': 'uint64[]', 'name': 'operatorIds', 'type': 'uint64[]' }, {
     'internalType': 'uint256',
     'name': 'amount',
@@ -787,12 +733,18 @@ const abi = [{ 'inputs': [], 'name': 'ApprovalNotWithinTimeframe', 'type': 'erro
       'internalType': 'uint64',
       'name': 'index',
       'type': 'uint64'
-    }, { 'internalType': 'uint256', 'name': 'balance', 'type': 'uint256' }, {
-      'internalType': 'bool',
-      'name': 'active',
-      'type': 'bool'
+    }, { 'internalType': 'bool', 'name': 'active', 'type': 'bool' }, {
+      'internalType': 'uint256',
+      'name': 'balance',
+      'type': 'uint256'
     }], 'internalType': 'struct ISSVNetworkCore.Cluster', 'name': 'cluster', 'type': 'tuple'
   }], 'name': 'withdraw', 'outputs': [], 'stateMutability': 'nonpayable', 'type': 'function'
+}, {
+  'inputs': [{ 'internalType': 'uint64', 'name': 'operatorId', 'type': 'uint64' }],
+  'name': 'withdrawAllOperatorEarnings',
+  'outputs': [],
+  'stateMutability': 'nonpayable',
+  'type': 'function'
 }, {
   'inputs': [{ 'internalType': 'uint256', 'name': 'amount', 'type': 'uint256' }],
   'name': 'withdrawNetworkEarnings',
@@ -805,11 +757,6 @@ const abi = [{ 'inputs': [], 'name': 'ApprovalNotWithinTimeframe', 'type': 'erro
     'name': 'amount',
     'type': 'uint256'
   }], 'name': 'withdrawOperatorEarnings', 'outputs': [], 'stateMutability': 'nonpayable', 'type': 'function'
-}, {
-  'inputs': [{ 'internalType': 'uint64', 'name': 'operatorId', 'type': 'uint64' }],
-  'name': 'withdrawOperatorEarnings',
-  'outputs': [],
-  'stateMutability': 'nonpayable',
-  'type': 'function'
 }]
-export default abi
+
+export default abi;

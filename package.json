@@ -6,8 +6,7 @@
   "scripts": {
     "register-validator": "run-func src/tool.js registerValidator",
     "estimate-fee": "run-func src/tool.js estimateFee",
-    "operator-candidates": "run-func src/tool.js operatorCandidates",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "operator-candidates": "run-func src/tool.js operatorCandidates"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +15,7 @@
     "ethers": "^5.7.2",
     "node-fetch": "^3.3.0",
     "run-func": "^3.0.0",
-    "ssv-keys": "^0.0.18"
+    "ssv-keys": "^1.0.1",
+    "ssv-scanner": "github:bloxapp/ssv-scanner"
   }
 }

@@ -1,10 +1,17 @@
 #!/bin/bash
+#The network of the validator,must be "mainnet" or "goerli"
+network=$1
+# Validate the network parameter
+if [ "$network" != "mainnet" ] && [ "$network" != "goerli" ]; then
+    echo "Error: Invalid network parameter. It must be './eth_validator_info.sh mainnet' or './eth_validator_info.sh goerli'."
+    exit 1
+fi
 #The index of the validator that needs to be statisticsed
 indexs=380081,38080
 
 #Get data from api of beaconcha.in
 data=`/usr/bin/curl -X 'GET' \
-  'https://goerli.beaconcha.in/api/v1/validator/'$indexs'' \
+  'https://'$network'.beaconcha.in/api/v1/validator/'$indexs'' \
   -H 'accept: application/json'`
 
 #Extract the value of the pubkey field from JSON

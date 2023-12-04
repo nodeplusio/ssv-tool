@@ -1,7 +1,6 @@
 import { BigNumber } from 'ethers'
 import fetch from 'node-fetch'
-
-const api = 'https://api.ssv.network/api/v3/prater'
+import {API} from './config.js'
 
 async function estimateFee(clusterId){
   console.log(`estimate operation fee for cluster: ${clusterId}`)
@@ -21,19 +20,19 @@ async function estimateFee(clusterId){
   const remainingDays = BigNumber.from(c.cluster.balance)
     .div(feeSum)
     .div(c.cluster.validatorCount)
-    .div(BigNumber.from('8000'))
+    .div(BigNumber.from('9600'))
     .sub(30)
 
   console.log(`remaining days: ${remainingDays}`)
 }
 
 async function fetchClusterInfo (clusterId) {
-  const r = await fetch(`${api}/clusters/${clusterId}`)
+  const r = await fetch(`${API}/clusters/${clusterId}`)
   return r.json()
 }
 
 async function fetchOperatorInfo(operatorId){
-  const r = await fetch(`${api}/operators/${operatorId}`)
+  const r = await fetch(`${API}/operators/${operatorId}`)
   return r.json()
 }
 
