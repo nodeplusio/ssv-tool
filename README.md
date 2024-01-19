@@ -1,3 +1,7 @@
+# Version
+version 1.0 supports SSV V4 API and contract.
+Both mainnet and testnet are supported, it can be config in .env file [example](./.env-example)
+
 # Requirement
 
 **nodejs version 16**
@@ -9,10 +13,23 @@ npm install
 # Config
 
 ## Config .env
-example: .env-example
+example: [.env-example](.env-example)
 ```
-INFURA_API_KEY=<infura api key>
-SIGNER_PRIVATE_KEY=<owner address private key>
+#goerli
+INFURA_API=https://goerli.infura.io/v3/
+INFURA_API_KEY=
+
+#goerli
+NETWORK=prater
+
+#goerli
+SIGNER_PRIVATE_KEY=
+
+#goerli
+API=https://api.ssv.network/api/v4/prater
+
+#goerli
+SSV_CONTRACT_ADDRESS=0xC3CD9A0aE89Fff83b71b58b6512D43F8a41f363D
 ```
 
 ## Config keystore
